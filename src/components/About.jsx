@@ -1,5 +1,5 @@
 import React from 'react';
-import { GraduationCap, Award, CheckCircle2, TrendingUp, Sparkles, Compass, ShieldCheck } from 'lucide-react';
+import { GraduationCap, Briefcase, CheckCircle2, ArrowRight } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 
 export default function About() {
@@ -7,118 +7,134 @@ export default function About() {
 
   const corePillars = [
     {
-      title: "Commercial Retail Strategy",
-      desc: "Range planning, SKU categorization, option balancing, and sell-through rate acceleration.",
-      icon: TrendingUp
+      title: "Buying & Assortment Architecture",
+      detail: "Range planning, SKU tiering, option counts, and aligning wholesale orders with store delivery cadences."
     },
     {
-      title: "Spatial & Visual Merchandising",
-      desc: "Creating captivating window displays, EBO/SIS brand coherence, and footfall-converting floor layouts.",
-      icon: Sparkles
+      title: "Retail Operations & Stock Flow",
+      detail: "Active inventory tracking across 1,500+ SKUs, minimizing stock-outs through scheduled replenishment cycles."
     },
     {
-      title: "Couture Design & Construction",
-      desc: "Translating concepts into master silhouettes, fabric ergonomics, and bespoke surface detailing.",
-      icon: Compass
+      title: "Visual Merchandising & Floor Physics",
+      detail: "Translating brand guidelines into high-traffic window displays, focal points, and standardized folding/placement SOPs."
+    },
+    {
+      title: "Garment Construction & Technical Fluency",
+      detail: "BSc training in pattern drafting, silhouette draping, and fabric science providing deep product-level credibility."
     }
   ];
 
   return (
-    <section id="about" className="py-24 relative overflow-hidden">
+    <section id="about" className="py-24 border-b border-white/10 bg-[#0e0e10]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header */}
-        <div className="flex flex-col items-center text-center mb-16">
-          <span className="text-xs font-mono font-semibold tracking-widest text-champagne uppercase mb-3">
-            01. Professional Overview
-          </span>
-          <h2 className="font-serif text-3xl sm:text-5xl text-white font-normal">
-            Creative Vision Powered by <span className="italic font-serif gold-gradient-text">Commercial Precision</span>
-          </h2>
-          <div className="w-16 h-0.5 bg-champagne/40 mt-4" />
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
-          {/* Left Column: Story & Philosophy */}
-          <div className="lg:col-span-7 space-y-6">
-            <div className="glass-card p-8 sm:p-10 rounded-3xl border border-luxury-800 relative">
-              <h3 className="font-serif text-2xl sm:text-3xl text-white mb-4">
-                Bridging Fashion Artistry & Retail Profitability
-              </h3>
-              
-              <p className="text-luxury-300 leading-relaxed font-light text-base sm:text-lg mb-6">
-                With a dual background combining a <span className="text-white font-medium">BSc in Fashion Design</span> and an <span className="text-white font-medium">MBA in Fashion Lifestyle Business Management</span> from Pearl Academy, I operate at the intersection of creative luxury aesthetics and data-driven retail management.
+          {/* Left Column: Portrait Framing & Education Credentials */}
+          <div className="lg:col-span-5 space-y-8">
+            
+            {/* Refined Editorial Monogram / Portrait Frame */}
+            <div className="relative rounded-xl overflow-hidden bg-[#161619] border border-white/10 p-8 text-center flex flex-col items-center justify-center min-h-[320px]">
+              <div className="w-20 h-20 rounded-full border border-warm-accent/40 bg-[#121214] flex items-center justify-center font-serif text-3xl font-bold text-warm-accent mb-4 shadow-sm">
+                K
+              </div>
+              <span className="font-serif text-2xl font-semibold text-white tracking-wider">
+                KRUTI AYACHITULA
+              </span>
+              <span className="text-xs font-mono uppercase tracking-widest text-warm-sand mt-1">
+                Bangalore, India
+              </span>
+              <p className="text-xs text-studio-400 font-light mt-3 max-w-xs leading-relaxed">
+                MBA Candidate in Fashion Lifestyle Business Management & BSc Fashion Design Graduate.
               </p>
 
-              <p className="text-luxury-300 leading-relaxed font-light text-base sm:text-lg mb-8">
-                My career encompasses hands-on store leadership at <span className="text-champagne font-medium">Philocaly</span> (managing 1,500+ SKUs), multi-store VM rollouts at <span className="text-champagne font-medium">The Bear House</span>, luxury ad sales at <span className="text-champagne font-medium">The Times of India Group</span>, high-fashion PR at <span className="text-champagne font-medium">Gaurav Gupta</span>, and bespoke bridal execution at <span className="text-champagne font-medium">Pooja & Kavya</span>.
-              </p>
-
-              {/* Core Pillars */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-luxury-800">
-                {corePillars.map((pillar, idx) => {
-                  const Icon = pillar.icon;
-                  return (
-                    <div key={idx} className="p-4 rounded-xl bg-luxury-900/60 border border-luxury-800/60 hover:border-champagne/40 transition-colors">
-                      <Icon className="w-5 h-5 text-champagne mb-2" />
-                      <h4 className="text-sm font-semibold text-white mb-1">{pillar.title}</h4>
-                      <p className="text-xs text-luxury-400 leading-relaxed">{pillar.desc}</p>
-                    </div>
-                  );
-                })}
+              <div className="mt-6 pt-6 border-t border-white/10 w-full flex items-center justify-around text-center">
+                <div>
+                  <div className="font-mono text-xs font-bold text-white">Pearl Academy</div>
+                  <div className="text-[10px] font-mono text-studio-400">MBA 2025–2027</div>
+                </div>
+                <div className="w-px h-6 bg-white/10" />
+                <div>
+                  <div className="font-mono text-xs font-bold text-white">INIFD</div>
+                  <div className="text-[10px] font-mono text-studio-400">BSc 2020–2023</div>
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* Right Column: Academic Foundation & Credentials */}
-          <div className="lg:col-span-5 space-y-6">
-            <div className="text-xs font-mono uppercase tracking-widest text-champagne mb-2 flex items-center gap-2">
-              <GraduationCap className="w-4 h-4" />
-              <span>Academic Credentials</span>
-            </div>
+            {/* Academic Credentials Detail */}
+            <div className="space-y-4">
+              <span className="text-xs font-mono uppercase tracking-widest text-warm-accent block">
+                Academic Background
+              </span>
 
-            {education.map((edu, idx) => (
-              <div
-                key={idx}
-                className="glass-card p-6 rounded-2xl border border-luxury-800 hover:border-champagne/40 transition-all duration-300 group"
-              >
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <span className="text-xs font-mono text-champagne font-semibold px-2.5 py-1 rounded bg-champagne/10 border border-champagne/20">
-                      {edu.period}
-                    </span>
-                    <h4 className="font-serif text-xl font-semibold text-white mt-3 group-hover:text-champagne transition-colors">
+              {education.map((edu, idx) => (
+                <div key={idx} className="p-5 rounded-lg bg-[#141417] border border-white/10 space-y-2">
+                  <div className="flex items-start justify-between gap-2">
+                    <h4 className="font-serif text-lg font-semibold text-white">
                       {edu.degree}
                     </h4>
-                    <p className="text-sm text-luxury-300 font-medium mt-1">
-                      {edu.institution}
+                    <span className="text-[11px] font-mono text-warm-sand shrink-0">
+                      {edu.period}
+                    </span>
+                  </div>
+                  <p className="text-xs font-mono text-studio-300">
+                    {edu.institution} • {edu.location}
+                  </p>
+                  <p className="text-xs text-studio-400 font-light pt-1">
+                    {edu.focus}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+          </div>
+
+          {/* Right Column: Professional Background & 4 Pillars */}
+          <div className="lg:col-span-7 space-y-8">
+            <div className="space-y-4">
+              <span className="text-xs font-mono font-semibold tracking-widest text-warm-accent uppercase block">
+                Executive Profile
+              </span>
+              <h2 className="font-serif text-3xl sm:text-5xl font-normal text-white leading-tight">
+                Product Knowledge Meets <br />
+                <span className="italic font-serif text-warm-sand">Commercial Retail Rigor</span>
+              </h2>
+              <p className="text-studio-200 text-sm sm:text-base leading-relaxed font-light pt-2">
+                {personal.bio}
+              </p>
+            </div>
+
+            {/* Core Capabilities Grid */}
+            <div className="space-y-3 pt-2">
+              <span className="text-xs font-mono uppercase tracking-widest text-studio-400 block">
+                Core Professional Focus Areas
+              </span>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {corePillars.map((pillar, idx) => (
+                  <div
+                    key={idx}
+                    className="p-5 rounded-lg bg-[#141417] border border-white/10 hover:border-warm-accent/30 transition-colors space-y-2"
+                  >
+                    <h4 className="font-serif text-lg font-semibold text-white">
+                      {pillar.title}
+                    </h4>
+                    <p className="text-xs text-studio-300 leading-relaxed font-light">
+                      {pillar.detail}
                     </p>
                   </div>
-                </div>
-
-                <ul className="mt-4 space-y-2 border-t border-luxury-800/60 pt-4">
-                  {edu.highlights.map((item, hIdx) => (
-                    <li key={hIdx} className="flex items-start gap-2.5 text-xs text-luxury-400">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-champagne shrink-0 mt-0.5" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
+                ))}
               </div>
-            ))}
+            </div>
 
-            {/* Quick Contact Micro-Card */}
-            <div className="p-5 rounded-2xl bg-gradient-to-r from-luxury-900 to-luxury-950 border border-champagne/30 flex items-center justify-between">
-              <div>
-                <span className="text-[11px] font-mono uppercase tracking-wider text-luxury-400">Current Base</span>
-                <p className="text-sm font-semibold text-white">Bangalore, India</p>
-              </div>
+            {/* Quick Link to CV */}
+            <div className="pt-2 flex items-center gap-4">
               <a
-                href="#contact"
-                className="px-4 py-2 rounded-full bg-champagne text-luxury-950 text-xs font-semibold uppercase tracking-wider hover:bg-champagne-light transition-colors"
+                href={personal.resumePdf}
+                download="Kruti_A_Resume.pdf"
+                className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-warm-sand hover:text-white border-b border-warm-sand pb-0.5 transition-colors"
               >
-                Connect
+                <span>Review Full Curriculum Vitae</span>
+                <span>→</span>
               </a>
             </div>
 

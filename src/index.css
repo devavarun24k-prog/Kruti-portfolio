@@ -12,61 +12,56 @@
   }
 
   body {
-    background-color: #08080a;
-    color: #e5e5ed;
+    background-color: #0e0e10;
+    color: #e5e3ec;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
     overflow-x: hidden;
   }
 
-  /* Custom luxury scrollbar */
+  /* Refined, quiet scrollbar */
   ::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #0f0f13;
+    background: #0e0e10;
   }
   ::-webkit-scrollbar-thumb {
-    background: #2b2b36;
-    border-radius: 4px;
-    border: 2px solid #0f0f13;
+    background: #25242b;
+    border-radius: 3px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #d4af37;
+    background: #c5a880;
   }
 }
 
 @layer utilities {
-  .glass-card {
-    background: rgba(19, 19, 24, 0.7);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+  .editorial-border {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .editorial-card {
+    background-color: #141417;
     border: 1px solid rgba(255, 255, 255, 0.07);
+    transition: border-color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
   }
 
-  .glass-card-hover {
-    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  .glass-card-hover:hover {
-    background: rgba(26, 26, 33, 0.85);
-    border-color: rgba(212, 175, 55, 0.35);
-    box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.5), 0 0 20px -5px rgba(212, 175, 55, 0.15);
-    transform: translateY(-3px);
+  .editorial-card:hover {
+    border-color: rgba(197, 168, 128, 0.35);
+    background-color: #18171c;
   }
 
-  .gold-gradient-text {
-    background: linear-gradient(135deg, #fff 0%, #f5e6be 40%, #d4af37 80%, #aa8420 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  .editorial-pill {
+    background-color: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #c5c3d2;
   }
 
-  .gold-border-glow {
-    position: relative;
+  .editorial-accent-text {
+    color: #c5a880;
   }
-  .gold-border-glow::before {
-    content: '';
-    position: absolute;
-    inset: -1px;
-    background: linear-gradient(135deg, rgba(212, 175, 55, 0.5), transparent, rgba(212, 175, 55, 0.2));
-    border-radius: inherit;
-    z-index: -1;
+
+  .editorial-rule {
+    height: 1px;
+    background: linear-gradient(to right, rgba(197, 168, 128, 0.3), rgba(255, 255, 255, 0.08), transparent);
   }
 }

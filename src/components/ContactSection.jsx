@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, ExternalLink, Download, Send, Check, Copy, Sparkles } from 'lucide-react';
+import { Mail, Phone, MapPin, ExternalLink, Download, Send, Check, Copy } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 
 export default function ContactSection() {
@@ -25,200 +25,195 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-24 bg-luxury-950/80 relative border-t border-luxury-900">
+    <section id="contact" className="py-24 border-b border-white/10 bg-[#0e0e10]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Header */}
-        <div className="flex flex-col items-center text-center mb-16">
-          <span className="text-xs font-mono font-semibold tracking-widest text-champagne uppercase mb-3">
-            06. Let's Collaborate
+        {/* Section Header */}
+        <div className="max-w-3xl mb-16">
+          <span className="text-xs font-mono font-semibold tracking-widest text-warm-accent uppercase mb-3 block">
+            Initiate Contact
           </span>
-          <h2 className="font-serif text-3xl sm:text-5xl text-white font-normal">
-            Initiate a <span className="italic font-serif gold-gradient-text">Conversation</span>
+          <h2 className="font-serif text-3xl sm:text-5xl font-normal text-white">
+            Available for Buying, Merchandising & <br />
+            <span className="italic font-serif text-warm-sand">Retail Management Opportunities</span>
           </h2>
-          <div className="w-16 h-0.5 bg-champagne/40 mt-4" />
+          <p className="text-studio-300 text-sm sm:text-base font-light mt-3">
+            Open to full-time roles, strategic internships, and placement opportunities in fashion buying, retail merchandising, and visual operations.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
-          {/* Left Column: Direct Info & Quick Actions */}
+          {/* Left Column: Direct Contact Details & CV Download */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="glass-card p-8 rounded-3xl border border-luxury-800 space-y-6">
-              <h3 className="font-serif text-2xl text-white font-semibold">
-                Available for Strategic Retail, Merchandising & Design Roles
-              </h3>
-              <p className="text-luxury-300 text-sm leading-relaxed font-light">
-                Open to executive retail merchandise planning, visual merchandising leadership, luxury buying, and fashion brand development opportunities.
-              </p>
-
-              {/* Direct Info List */}
-              <div className="space-y-4 pt-4 border-t border-luxury-800">
-                
-                {/* Email */}
-                <div className="p-4 rounded-2xl bg-luxury-900/70 border border-luxury-800 flex items-center justify-between group">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-champagne/10 border border-champagne/30 flex items-center justify-center text-champagne">
-                      <Mail className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <span className="text-[10px] font-mono uppercase text-luxury-400 block">Email Address</span>
-                      <a href={`mailto:${personal.email}`} className="text-sm font-medium text-white hover:text-champagne transition-colors">
-                        {personal.email}
-                      </a>
-                    </div>
-                  </div>
-                  <button
-                    onClick={() => handleCopy(personal.email, 'email')}
-                    className="p-2 rounded-lg bg-luxury-800 text-luxury-300 hover:text-white hover:bg-luxury-700 transition-colors"
-                    title="Copy email"
-                  >
-                    {copiedType === 'email' ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
-                  </button>
-                </div>
-
-                {/* Phone */}
-                <div className="p-4 rounded-2xl bg-luxury-900/70 border border-luxury-800 flex items-center justify-between group">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-champagne/10 border border-champagne/30 flex items-center justify-center text-champagne">
-                      <Phone className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <span className="text-[10px] font-mono uppercase text-luxury-400 block">Direct Phone</span>
-                      <a href={`tel:${personal.phone}`} className="text-sm font-medium text-white hover:text-champagne transition-colors">
-                        {personal.phone}
-                      </a>
-                    </div>
-                  </div>
-                  <button
-                    onClick={() => handleCopy(personal.phone, 'phone')}
-                    className="p-2 rounded-lg bg-luxury-800 text-luxury-300 hover:text-white hover:bg-luxury-700 transition-colors"
-                    title="Copy phone"
-                  >
-                    {copiedType === 'phone' ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
-                  </button>
-                </div>
-
-                {/* Location */}
-                <div className="p-4 rounded-2xl bg-luxury-900/70 border border-luxury-800 flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-champagne/10 border border-champagne/30 flex items-center justify-center text-champagne">
-                    <MapPin className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <span className="text-[10px] font-mono uppercase text-luxury-400 block">Location</span>
-                    <span className="text-sm font-medium text-white">{personal.location}</span>
-                  </div>
-                </div>
-
-                {/* Behance Link */}
-                <a
-                  href={personal.behance}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="p-4 rounded-2xl bg-luxury-900/70 border border-luxury-800 hover:border-champagne/50 flex items-center justify-between transition-colors group"
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-champagne/10 border border-champagne/30 flex items-center justify-center text-champagne font-bold font-serif">
-                      Bē
-                    </div>
-                    <div>
-                      <span className="text-[10px] font-mono uppercase text-luxury-400 block">Design Portfolio</span>
-                      <span className="text-sm font-medium text-white group-hover:text-champagne transition-colors">behance.net/krutiayachitula</span>
-                    </div>
-                  </div>
-                  <ExternalLink className="w-4 h-4 text-luxury-500 group-hover:text-champagne transition-colors" />
-                </a>
-
+            <div className="p-8 rounded-xl bg-[#141417] border border-white/10 space-y-6">
+              
+              <div className="space-y-1">
+                <span className="text-[10px] font-mono uppercase tracking-widest text-warm-accent font-semibold block">
+                  Direct Inquiries
+                </span>
+                <h3 className="font-serif text-2xl font-semibold text-white">
+                  Contact Information
+                </h3>
               </div>
 
-              {/* Resume Download CTA */}
+              {/* Email */}
+              <div className="p-4 rounded-lg bg-[#0e0e10] border border-white/10 flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <Mail className="w-4 h-4 text-warm-accent shrink-0" />
+                  <div>
+                    <span className="text-[10px] font-mono uppercase text-studio-400 block">Email Address</span>
+                    <a href={`mailto:${personal.email}`} className="text-xs font-mono text-white hover:text-warm-accent transition-colors">
+                      {personal.email}
+                    </a>
+                  </div>
+                </div>
+                <button
+                  onClick={() => handleCopy(personal.email, 'email')}
+                  className="p-1.5 rounded bg-white/5 hover:bg-white/10 text-studio-300 transition-colors"
+                  title="Copy email"
+                >
+                  {copiedType === 'email' ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
+                </button>
+              </div>
+
+              {/* Phone */}
+              <div className="p-4 rounded-lg bg-[#0e0e10] border border-white/10 flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <Phone className="w-4 h-4 text-warm-accent shrink-0" />
+                  <div>
+                    <span className="text-[10px] font-mono uppercase text-studio-400 block">Phone</span>
+                    <a href={`tel:${personal.phone}`} className="text-xs font-mono text-white hover:text-warm-accent transition-colors">
+                      {personal.phone}
+                    </a>
+                  </div>
+                </div>
+                <button
+                  onClick={() => handleCopy(personal.phone, 'phone')}
+                  className="p-1.5 rounded bg-white/5 hover:bg-white/10 text-studio-300 transition-colors"
+                  title="Copy phone"
+                >
+                  {copiedType === 'phone' ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
+                </button>
+              </div>
+
+              {/* Location */}
+              <div className="p-4 rounded-lg bg-[#0e0e10] border border-white/10 flex items-center gap-3">
+                <MapPin className="w-4 h-4 text-warm-accent shrink-0" />
+                <div>
+                  <span className="text-[10px] font-mono uppercase text-studio-400 block">Current Location</span>
+                  <span className="text-xs font-mono text-white">{personal.location}</span>
+                </div>
+              </div>
+
+              {/* Behance Link */}
+              <a
+                href={personal.behance}
+                target="_blank"
+                rel="noreferrer"
+                className="p-4 rounded-lg bg-[#0e0e10] border border-white/10 hover:border-warm-accent/40 flex items-center justify-between transition-colors group"
+              >
+                <div className="flex items-center gap-3">
+                  <span className="font-serif font-bold text-sm text-warm-accent">Bē</span>
+                  <div>
+                    <span className="text-[10px] font-mono uppercase text-studio-400 block">Design Portfolio</span>
+                    <span className="text-xs font-mono text-white group-hover:text-warm-accent transition-colors">
+                      behance.net/krutiayachitula
+                    </span>
+                  </div>
+                </div>
+                <ExternalLink className="w-3.5 h-3.5 text-studio-500 group-hover:text-warm-accent transition-colors" />
+              </a>
+
+              {/* Download CV Button */}
               <div className="pt-2">
                 <a
                   href={personal.resumePdf}
                   download="Kruti_A_Resume.pdf"
-                  className="w-full py-3.5 rounded-xl bg-champagne text-luxury-950 font-semibold text-xs uppercase tracking-wider hover:bg-champagne-light transition-all flex items-center justify-center gap-2 shadow-lg shadow-champagne/20"
+                  className="w-full py-3.5 rounded bg-warm-sand hover:bg-white text-studio-950 font-mono font-semibold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2 shadow-sm"
                 >
-                  <Download className="w-4 h-4" />
-                  <span>Download Full Curriculum Vitae</span>
+                  <Download className="w-3.5 h-3.5" />
+                  <span>Download Curriculum Vitae (PDF)</span>
                 </a>
               </div>
 
             </div>
           </div>
 
-          {/* Right Column: Interactive Inquiry Form */}
+          {/* Right Column: Clean Inquiry Form */}
           <div className="lg:col-span-7">
-            <div className="glass-card p-8 sm:p-10 rounded-3xl border border-luxury-800 relative">
-              <h3 className="font-serif text-2xl text-white font-semibold mb-2">
-                Send an Executive Inquiry
-              </h3>
-              <p className="text-xs text-luxury-400 mb-8 font-mono">
-                Direct inquiries are forwarded promptly.
-              </p>
+            <div className="p-8 sm:p-10 rounded-xl bg-[#141417] border border-white/10 space-y-6">
+              <div className="space-y-1">
+                <span className="text-[10px] font-mono uppercase tracking-widest text-warm-accent font-semibold block">
+                  Get In Touch
+                </span>
+                <h3 className="font-serif text-2xl font-semibold text-white">
+                  Send a Direct Message
+                </h3>
+              </div>
 
               {submitted ? (
-                <div className="p-8 rounded-2xl bg-champagne/10 border border-champagne/40 text-center space-y-3 animate-fade-in">
-                  <div className="w-12 h-12 rounded-full bg-champagne/20 border border-champagne flex items-center justify-center mx-auto text-champagne">
-                    <Check className="w-6 h-6" />
-                  </div>
-                  <h4 className="font-serif text-2xl text-white font-semibold">Message Delivered</h4>
-                  <p className="text-sm text-luxury-300">Thank you for reaching out. Kruti will connect with you shortly.</p>
+                <div className="p-6 rounded-lg bg-warm-darkAccent/40 border border-warm-accent/40 text-center space-y-2">
+                  <Check className="w-6 h-6 text-warm-accent mx-auto" />
+                  <h4 className="font-serif text-xl text-white font-semibold">Message Received</h4>
+                  <p className="text-xs text-studio-300 font-light">Thank you. Kruti will respond to your inquiry promptly.</p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-5">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-1.5">
-                      <label className="text-xs font-mono uppercase tracking-wider text-luxury-300">Your Name *</label>
+                      <label className="text-xs font-mono uppercase tracking-wider text-studio-300">Name *</label>
                       <input
                         type="text"
                         required
-                        placeholder="e.g. Eleanor Vance"
+                        placeholder="Your full name"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl bg-luxury-900 border border-luxury-800 text-white placeholder-luxury-600 focus:outline-none focus:border-champagne text-sm"
+                        className="w-full px-3.5 py-2.5 rounded bg-[#0e0e10] border border-white/10 text-white placeholder-studio-600 focus:outline-none focus:border-warm-accent text-xs font-mono"
                       />
                     </div>
                     <div className="space-y-1.5">
-                      <label className="text-xs font-mono uppercase tracking-wider text-luxury-300">Your Email *</label>
+                      <label className="text-xs font-mono uppercase tracking-wider text-studio-300">Email *</label>
                       <input
                         type="email"
                         required
-                        placeholder="e.g. name@brand.com"
+                        placeholder="your.email@company.com"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl bg-luxury-900 border border-luxury-800 text-white placeholder-luxury-600 focus:outline-none focus:border-champagne text-sm"
+                        className="w-full px-3.5 py-2.5 rounded bg-[#0e0e10] border border-white/10 text-white placeholder-studio-600 focus:outline-none focus:border-warm-accent text-xs font-mono"
                       />
                     </div>
                   </div>
 
                   <div className="space-y-1.5">
-                    <label className="text-xs font-mono uppercase tracking-wider text-luxury-300">Subject / Engagement Type</label>
+                    <label className="text-xs font-mono uppercase tracking-wider text-studio-300">Inquiry Subject</label>
                     <input
                       type="text"
-                      placeholder="e.g. Visual Merchandising Project / Luxury Retail Role"
+                      placeholder="e.g. Buying & Merchandising Opportunity"
                       value={formData.subject}
                       onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-luxury-900 border border-luxury-800 text-white placeholder-luxury-600 focus:outline-none focus:border-champagne text-sm"
+                      className="w-full px-3.5 py-2.5 rounded bg-[#0e0e10] border border-white/10 text-white placeholder-studio-600 focus:outline-none focus:border-warm-accent text-xs font-mono"
                     />
                   </div>
 
                   <div className="space-y-1.5">
-                    <label className="text-xs font-mono uppercase tracking-wider text-luxury-300">Message *</label>
+                    <label className="text-xs font-mono uppercase tracking-wider text-studio-300">Message *</label>
                     <textarea
-                      rows={5}
+                      rows={4}
                       required
-                      placeholder="Describe your project, merchandising requirements, or timeline..."
+                      placeholder="Please share details about the role, organization, or project..."
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-luxury-900 border border-luxury-800 text-white placeholder-luxury-600 focus:outline-none focus:border-champagne text-sm resize-none"
+                      className="w-full px-3.5 py-2.5 rounded bg-[#0e0e10] border border-white/10 text-white placeholder-studio-600 focus:outline-none focus:border-warm-accent text-xs font-mono resize-none"
                     />
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full py-4 rounded-xl bg-white hover:bg-champagne text-luxury-950 font-bold text-xs uppercase tracking-widest transition-all duration-300 flex items-center justify-center gap-2 shadow-lg"
+                    className="w-full py-3.5 rounded bg-white hover:bg-warm-sand text-studio-950 font-mono font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2"
                   >
-                    <Send className="w-4 h-4" />
-                    <span>Send Message</span>
+                    <Send className="w-3.5 h-3.5" />
+                    <span>Transmit Message</span>
                   </button>
                 </form>
               )}

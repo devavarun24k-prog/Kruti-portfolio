@@ -1,107 +1,113 @@
 import React from 'react';
-import { ArrowDown, Sparkles, Download, Eye, Layers, Compass, TrendingUp } from 'lucide-react';
+import { ArrowDown, Download, ArrowRight } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 
 export default function Hero() {
   const { personal } = portfolioData;
 
   return (
-    <section id="hero" className="relative min-h-screen pt-32 pb-20 flex items-center justify-center overflow-hidden">
-      {/* Editorial Luxury Ambient Background Elements */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-to-tr from-champagne/10 via-roseGold/5 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
-      <div className="absolute -bottom-20 -left-20 w-[450px] h-[450px] bg-luxury-800/20 rounded-full blur-3xl pointer-events-none -z-10" />
-      
-      {/* Decorative Grid Lines */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_40%,#000_70%,transparent_100%)] pointer-events-none -z-10" />
-
+    <section id="hero" className="relative min-h-[92vh] pt-32 pb-20 flex flex-col justify-between border-b border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         
-        {/* Top Floating Badge */}
-        <div className="flex justify-center mb-6">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-card border border-champagne/30 text-champagne text-xs font-medium tracking-widest uppercase shadow-[0_0_20px_rgba(212,175,55,0.15)] animate-fade-in">
-            <Sparkles className="w-3.5 h-3.5 text-champagne" />
-            <span>Fashion Business & Luxury Retail Strategist</span>
+        {/* Top Eyebrow Badges */}
+        <div className="flex flex-wrap items-center gap-3 mb-8">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-white/[0.04] border border-white/15 text-warm-sand text-[11px] font-mono tracking-widest uppercase">
+            <span>Fashion Business</span>
+            <span className="text-warm-accent">•</span>
+            <span>Buying & Merchandising</span>
+            <span className="text-warm-accent">•</span>
+            <span>Retail</span>
+          </div>
+
+          <div className="hidden sm:inline-flex items-center gap-2 text-xs font-mono text-studio-400">
+            <span className="text-white">Pearl Academy MBA</span>
+            <span>/</span>
+            <span className="text-white">BSc Fashion Design</span>
           </div>
         </div>
 
-        {/* Main Headline */}
-        <div className="text-center max-w-4xl mx-auto space-y-6">
-          <h1 className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-normal tracking-tight text-white leading-[1.08]">
-            Where Haute Couture <br />
-            <span className="italic font-light gold-gradient-text font-serif">Meets Retail Strategy</span>
+        {/* Hero Title & Recruiter Statement */}
+        <div className="max-w-5xl space-y-8">
+          <h1 className="font-serif text-5xl sm:text-7xl md:text-8xl font-normal text-white leading-[1.04] tracking-tight">
+            Translating Fashion Insight <br />
+            <span className="italic text-warm-sand font-serif">Into Commercial Decisions</span>
           </h1>
 
-          <p className="text-luxury-300 text-base sm:text-lg md:text-xl font-light leading-relaxed max-w-2xl mx-auto">
-            Combining fashion design craft with MBA-level business acumen — optimizing retail merchandise planning, 
-            inventory velocity, visual storytelling, and commercial sell-through.
-          </p>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end pt-2">
+            <div className="lg:col-span-8">
+              <p className="text-studio-200 text-lg sm:text-xl font-light leading-relaxed max-w-3xl">
+                {personal.recruiterStatement}
+              </p>
+            </div>
 
-          {/* Quick Experience Tags */}
-          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 pt-2 text-xs tracking-wider uppercase font-mono text-luxury-400">
-            <span className="px-3 py-1 rounded-md bg-luxury-900/90 border border-luxury-800 text-luxury-200">The Bear House</span>
-            <span className="text-champagne/60">•</span>
-            <span className="px-3 py-1 rounded-md bg-luxury-900/90 border border-luxury-800 text-luxury-200">Philocaly</span>
-            <span className="text-champagne/60">•</span>
-            <span className="px-3 py-1 rounded-md bg-luxury-900/90 border border-luxury-800 text-luxury-200">Gaurav Gupta</span>
-            <span className="text-champagne/60">•</span>
-            <span className="px-3 py-1 rounded-md bg-luxury-900/90 border border-luxury-800 text-luxury-200">Henis Italian Couture</span>
+            <div className="lg:col-span-4 flex flex-col gap-2">
+              <span className="text-[10px] font-mono uppercase tracking-widest text-studio-400">
+                Core Brand Pillars
+              </span>
+              <div className="flex flex-wrap gap-2">
+                {personal.attributes.map((attr, idx) => (
+                  <span
+                    key={idx}
+                    className="px-2.5 py-1 rounded bg-warm-surface border border-white/10 text-xs font-mono tracking-wider text-warm-accent uppercase"
+                  >
+                    {attr.name}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
 
-          {/* Action Buttons */}
-          <div className="flex flex-wrap items-center justify-center gap-4 pt-6">
+          {/* Primary & Secondary CTAs */}
+          <div className="flex flex-wrap items-center gap-4 pt-4">
             <a
-              href="#projects"
-              className="px-8 py-3.5 rounded-full bg-champagne text-luxury-950 font-semibold text-sm tracking-wider uppercase shadow-lg shadow-champagne/25 hover:bg-champagne-light hover:scale-105 transition-all duration-300 flex items-center gap-2"
+              href="#selected-work"
+              className="px-7 py-3.5 rounded bg-warm-sand text-studio-950 font-mono text-xs font-semibold tracking-wider uppercase hover:bg-white transition-all duration-200 flex items-center gap-2 shadow-sm"
             >
-              <Eye className="w-4 h-4" />
-              <span>Explore Projects</span>
+              <span>View Work</span>
+              <ArrowRight className="w-3.5 h-3.5" />
             </a>
 
             <a
               href={personal.resumePdf}
               download="Kruti_A_Resume.pdf"
-              className="px-8 py-3.5 rounded-full glass-card border border-luxury-700 text-white hover:border-champagne/60 hover:text-champagne font-medium text-sm tracking-wider uppercase hover:scale-105 transition-all duration-300 flex items-center gap-2"
+              className="px-7 py-3.5 rounded bg-transparent border border-white/20 text-white font-mono text-xs font-medium tracking-wider uppercase hover:border-warm-accent hover:text-warm-accent transition-all duration-200 flex items-center gap-2"
             >
-              <Download className="w-4 h-4" />
-              <span>Download Resume</span>
+              <Download className="w-3.5 h-3.5" />
+              <span>Download CV</span>
+            </a>
+
+            <a
+              href="#bear-house"
+              className="px-5 py-3.5 text-studio-400 hover:text-white font-mono text-xs tracking-wider uppercase transition-colors flex items-center gap-1.5"
+            >
+              <span>The Bear House Case Study</span>
+              <span className="text-warm-accent">→</span>
             </a>
           </div>
+
         </div>
 
-        {/* Stats Strip */}
-        <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
+      </div>
+
+      {/* Editorial Bottom Metrics Strip */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mt-16 pt-8 border-t border-white/10">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {personal.stats.map((stat, idx) => (
-            <div
-              key={idx}
-              className="glass-card p-5 sm:p-6 rounded-2xl border border-luxury-800/80 hover:border-champagne/40 transition-all duration-300 text-center group"
-            >
-              <div className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white group-hover:text-champagne transition-colors">
+            <div key={idx} className="space-y-1">
+              <div className="font-serif text-3xl sm:text-4xl font-normal text-white">
                 {stat.value}
               </div>
-              <div className="text-xs font-semibold uppercase tracking-wider text-luxury-300 mt-2">
+              <div className="text-xs font-mono uppercase tracking-wider text-warm-sand">
                 {stat.label}
               </div>
-              <div className="text-[11px] text-luxury-400 mt-1 font-mono">
-                {stat.subtext}
+              <div className="text-[11px] text-studio-400 font-light">
+                {stat.context}
               </div>
             </div>
           ))}
         </div>
-
-        {/* Scroll down indicator */}
-        <div className="mt-16 flex justify-center">
-          <a
-            href="#about"
-            className="flex flex-col items-center gap-2 text-luxury-400 hover:text-champagne transition-colors text-xs font-mono uppercase tracking-widest group"
-          >
-            <span>Scroll To Discover</span>
-            <div className="w-6 h-10 rounded-full border border-luxury-700 flex items-start justify-center p-1 group-hover:border-champagne transition-colors">
-              <div className="w-1.5 h-2 bg-champagne rounded-full animate-bounce" />
-            </div>
-          </a>
-        </div>
-
       </div>
+
     </section>
   );
 }

@@ -8,65 +8,47 @@ export default {
   theme: {
     extend: {
       colors: {
-        luxury: {
-          950: '#08080a',
-          900: '#111114',
-          850: '#17171c',
-          800: '#202026',
-          700: '#2e2e38',
-          600: '#484856',
-          400: '#9494a6',
-          300: '#c2c2d1',
-          200: '#e5e5ed',
-          100: '#f5f5f9',
-          50: '#fafafd',
+        studio: {
+          950: '#0e0e10',
+          900: '#141416',
+          850: '#1a191c',
+          800: '#222126',
+          750: '#2c2b32',
+          700: '#3a3942',
+          600: '#555460',
+          500: '#757382',
+          400: '#9b99a8',
+          300: '#c5c3d2',
+          200: '#e5e3ec',
+          100: '#f4f3f8',
+          50: '#faf9fc',
         },
-        champagne: {
-          DEFAULT: '#d4af37',
-          light: '#f5e6be',
-          muted: '#bfa15f',
-          dark: '#9a7b20',
-          glow: '#ffdf78'
-        },
-        roseGold: {
-          DEFAULT: '#b76e79',
-          light: '#e8c4c8',
-          dark: '#8b4b54'
-        },
-        pearl: {
-          DEFAULT: '#f9f6f0',
-          dark: '#ece6da'
+        warm: {
+          bg: '#0f0f10',
+          card: '#161618',
+          cardBorder: '#27262c',
+          surface: '#1b1b1e',
+          stone: '#e6e2dc',
+          sand: '#d1c7b7',
+          parchment: '#f5f2eb',
+          accent: '#c5a880',
+          accentMuted: '#9e8460',
+          accentLight: '#ebdcc7',
+          darkAccent: '#2a241c'
         }
       },
       fontFamily: {
-        serif: ['"Cormorant Garamond"', 'Playfair Display', 'Georgia', 'serif'],
+        serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
         sans: ['"Plus Jakarta Sans"', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'monospace']
       },
-      animation: {
-        'fade-in': 'fadeIn 0.8s ease-out forwards',
-        'fade-up': 'fadeUp 0.8s ease-out forwards',
-        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'float': 'float 6s ease-in-out infinite',
-        'shimmer': 'shimmer 2.5s infinite linear',
+      spacing: {
+        '18': '4.5rem',
+        '22': '5.5rem',
       },
-      keyframes: {
-        fadeIn: {
-          '0%': { opacity: '0' },
-          '100%': { opacity: '1' },
-        },
-        fadeUp: {
-          '0%': { opacity: '0', transform: 'translateY(20px)' },
-          '100%': { opacity: '1', transform: 'translateY(0)' },
-        },
-        float: {
-          '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-10px)' },
-        },
-        shimmer: {
-          '0%': { backgroundPosition: '-200% 0' },
-          '100%': { backgroundPosition: '200% 0' }
-        }
+      letterSpacing: {
+        'widest-xl': '0.25em',
+        'widest-2xl': '0.35em',
       }
     },
   },

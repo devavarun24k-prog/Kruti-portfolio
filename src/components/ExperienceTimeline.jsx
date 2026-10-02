@@ -1,138 +1,100 @@
-import React, { useState } from 'react';
-import { Briefcase, MapPin, Calendar, CheckCircle2, ChevronRight, Building2, Store } from 'lucide-react';
+import React from 'react';
+import { Calendar, MapPin, CheckCircle2 } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 
 export default function ExperienceTimeline() {
   const { experiences } = portfolioData;
-  const [activeExpId, setActiveExpId] = useState(experiences[0].id);
-
-  const activeExp = experiences.find(e => e.id === activeExpId) || experiences[0];
 
   return (
-    <section id="experience" className="py-24 bg-luxury-950/60 relative border-t border-luxury-900">
+    <section id="experience" className="py-24 border-b border-white/10 bg-[#111114]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="flex flex-col items-center text-center mb-16">
-          <span className="text-xs font-mono font-semibold tracking-widest text-champagne uppercase mb-3">
-            02. Career Track Record
+        <div className="max-w-3xl mb-16">
+          <span className="text-xs font-mono font-semibold tracking-widest text-warm-accent uppercase mb-3 block">
+            Professional Track Record
           </span>
-          <h2 className="font-serif text-3xl sm:text-5xl text-white font-normal">
-            Professional Experience & <span className="italic font-serif gold-gradient-text">Brand Leadership</span>
+          <h2 className="font-serif text-3xl sm:text-5xl font-normal text-white">
+            Industry Experience & <span className="italic font-serif text-warm-sand">Retail Leadership</span>
           </h2>
-          <div className="w-16 h-0.5 bg-champagne/40 mt-4" />
+          <p className="text-studio-300 text-sm sm:text-base font-light mt-3">
+            Hands-on store operations, multi-format visual merchandising, luxury ad sales, bespoke design, and brand communication.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          
-          {/* Left: Role Navigation Tabs */}
-          <div className="lg:col-span-5 space-y-3">
-            <span className="text-xs font-mono uppercase tracking-widest text-luxury-400 block px-2 mb-2">
-              Select Position / Organization
-            </span>
-            {experiences.map((exp) => {
-              const isSelected = exp.id === activeExpId;
-              return (
-                <button
-                  key={exp.id}
-                  onClick={() => setActiveExpId(exp.id)}
-                  className={`w-full text-left p-4 sm:p-5 rounded-2xl transition-all duration-300 flex items-center justify-between border ${
-                    isSelected
-                      ? 'bg-luxury-900 border-champagne/60 shadow-lg shadow-champagne/10 text-white'
-                      : 'glass-card border-luxury-800/80 text-luxury-300 hover:text-white hover:border-luxury-700'
-                  }`}
-                >
-                  <div className="space-y-1">
-                    <div className="flex items-center gap-2">
-                      <span className={`text-[10px] font-mono uppercase px-2 py-0.5 rounded ${
-                        isSelected ? 'bg-champagne text-luxury-950 font-bold' : 'bg-luxury-800 text-luxury-400'
-                      }`}>
-                        {exp.badge}
-                      </span>
-                    </div>
-                    <h4 className="font-serif text-lg sm:text-xl font-semibold text-white">
-                      {exp.role}
-                    </h4>
-                    <p className="text-xs text-luxury-400 font-medium">
-                      {exp.company}
-                    </p>
+        {/* Editorial Experience Timeline List */}
+        <div className="space-y-8">
+          {experiences.map((exp, idx) => (
+            <div
+              key={idx}
+              className="p-8 rounded-xl bg-[#151518] border border-white/10 hover:border-warm-accent/30 transition-all duration-300"
+            >
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+                
+                {/* Left: Organization, Role, Dates & Location */}
+                <div className="lg:col-span-4 space-y-2">
+                  <div className="flex items-center gap-2">
+                    <span className="px-2.5 py-0.5 rounded text-[10px] font-mono uppercase bg-white/5 border border-white/10 text-warm-sand font-semibold">
+                      {exp.badge}
+                    </span>
                   </div>
-                  <ChevronRight className={`w-5 h-5 transition-transform ${isSelected ? 'text-champagne translate-x-1' : 'text-luxury-600'}`} />
-                </button>
-              );
-            })}
-          </div>
 
-          {/* Right: Detailed Experience Card */}
-          <div className="lg:col-span-7">
-            <div className="glass-card p-6 sm:p-10 rounded-3xl border border-champagne/30 relative shadow-2xl">
-              
-              {/* Badge & Period Header */}
-              <div className="flex flex-wrap items-center justify-between gap-3 pb-6 border-b border-luxury-800">
-                <div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-champagne/10 border border-champagne/30 text-champagne text-xs font-mono font-medium mb-3">
-                    <Store className="w-3.5 h-3.5" />
-                    <span>{activeExp.badge}</span>
-                  </div>
-                  <h3 className="font-serif text-2xl sm:text-3xl text-white font-semibold">
-                    {activeExp.role}
+                  <h3 className="font-serif text-2xl font-semibold text-white">
+                    {exp.company}
                   </h3>
-                  <div className="flex items-center gap-3 text-luxury-300 text-sm font-medium mt-1">
-                    <span className="text-champagne font-semibold">{activeExp.company}</span>
+
+                  <div className="font-mono text-xs text-warm-accent font-medium">
+                    {exp.role}
+                  </div>
+
+                  <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-studio-400 pt-1">
+                    <span className="flex items-center gap-1">
+                      <Calendar className="w-3 h-3 text-warm-accent" />
+                      {exp.period}
+                    </span>
                     <span>•</span>
-                    <span className="flex items-center gap-1 text-xs text-luxury-400">
-                      <MapPin className="w-3 h-3 text-luxury-500" />
-                      {activeExp.location}
+                    <span className="flex items-center gap-1">
+                      <MapPin className="w-3 h-3 text-studio-500" />
+                      {exp.location}
                     </span>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-luxury-900 border border-luxury-800 text-xs font-mono text-luxury-300">
-                  <Calendar className="w-3.5 h-3.5 text-champagne" />
-                  <span>{activeExp.period}</span>
-                </div>
-              </div>
+                {/* Right: Summary, Responsibilities & Skills */}
+                <div className="lg:col-span-8 space-y-4">
+                  <p className="text-xs sm:text-sm text-studio-200 font-light leading-relaxed italic border-l-2 border-warm-accent/40 pl-3">
+                    "{exp.summary}"
+                  </p>
 
-              {/* Description */}
-              <p className="text-luxury-300 text-sm sm:text-base leading-relaxed mt-6 italic font-light">
-                "{activeExp.description}"
-              </p>
-
-              {/* Key Deliverables & Impact Points */}
-              <div className="mt-6 space-y-3.5">
-                <h4 className="text-xs font-mono uppercase tracking-widest text-champagne font-semibold">
-                  Key Strategic Contributions
-                </h4>
-                <ul className="space-y-3">
-                  {activeExp.points.map((point, pIdx) => (
-                    <li key={pIdx} className="flex items-start gap-3 text-sm text-luxury-300 leading-relaxed">
-                      <CheckCircle2 className="w-4 h-4 text-champagne shrink-0 mt-0.5" />
-                      <span>{point}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Applied Skills */}
-              <div className="mt-8 pt-6 border-t border-luxury-800/80">
-                <span className="text-[11px] font-mono uppercase tracking-widest text-luxury-400 block mb-3">
-                  Domain Competencies Applied
-                </span>
-                <div className="flex flex-wrap gap-2">
-                  {activeExp.skills.map((skill, sIdx) => (
-                    <span
-                      key={sIdx}
-                      className="px-3 py-1 rounded-full bg-luxury-900 border border-luxury-700/60 text-xs font-medium text-luxury-200"
-                    >
-                      {skill}
+                  <div className="space-y-2">
+                    <span className="text-[11px] font-mono uppercase tracking-wider text-studio-400 block">
+                      Core Responsibilities & Deliverables
                     </span>
-                  ))}
+                    <ul className="space-y-2">
+                      {exp.responsibilities.map((resp, rIdx) => (
+                        <li key={rIdx} className="flex items-start gap-2.5 text-xs text-studio-300 leading-relaxed">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-warm-accent shrink-0 mt-0.5" />
+                          <span>{resp}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="flex flex-wrap gap-1.5 pt-2">
+                    {exp.coreCompetencies.map((comp, cIdx) => (
+                      <span
+                        key={cIdx}
+                        className="px-2.5 py-0.5 rounded bg-[#0e0e10] border border-white/5 text-[10px] font-mono text-studio-400"
+                      >
+                        {comp}
+                      </span>
+                    ))}
+                  </div>
                 </div>
+
               </div>
-
             </div>
-          </div>
-
+          ))}
         </div>
 
       </div>
