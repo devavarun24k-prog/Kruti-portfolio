@@ -9,7 +9,7 @@ export const portfolioData = {
     phone: "+91 6301708182",
     email: "krutiayachitula27@gmail.com",
     behance: "https://behance.net/krutiayachitula",
-    resumePdf: "/Kruti_A_Resume.pdf",
+    resumePdf: "./Kruti_A_Resume.pdf",
     stats: [
       { label: "SKUs Managed", value: "1,500+", subtext: "Active Retail Inventory & Stock Flow" },
       { label: "Retail Formats", value: "5+", subtext: "EBOs, SIS & Luxury Multi-Brand" },
